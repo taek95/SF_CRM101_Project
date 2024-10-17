@@ -1,0 +1,15 @@
+<template>
+    <lightning-card title="새로운 문의 등록하기" icon-name="standard:case">
+        <div class="slds-p-around_medium">
+            <lightning-input label="제목" value={subject} onchange={handleSubjectChange}></lightning-input>
+            <lightning-input label="문의내용(답변받을 이메일도 남겨주세요)" value={description} onchange={handleDescriptionChange} multiline></lightning-input><br><br>
+            <lightning-button label="Create Case" onclick={handleCreateCase} class="slds-m-top_medium"></lightning-button>
+            <template if:true={caseId}>
+                <p class="slds-text-color_success">문의가 정상적으로 보내졌습니다.</p>
+            </template>
+            <template if:true={error}>
+                <p class="slds-text-color_error">Error: {error}</p>
+            </template>
+        </div>
+    </lightning-card>
+</template>
