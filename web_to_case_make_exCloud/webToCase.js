@@ -16,7 +16,6 @@ export default class CaseCreator extends LightningElement {
     }
 
     handleCreateCase() {
-        console.log("tlqkf");
         createCase({ subject: this.subject, description: this.description })
             .then(result => {
                 this.caseId = result.Id; // Case ID 저장
