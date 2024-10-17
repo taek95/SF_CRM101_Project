@@ -1,0 +1,21 @@
+<template>
+    <lightning-card title="최신 질문" icon-name="standard:knowledge">
+        <div class="slds-p-around_medium">
+            <template for:each={knowledgeArticles} for:item="article">
+                <lightning-button 
+                    key={article.Id} 
+                    label={article.Title} 
+                    onclick={handleButtonClick} 
+                    data-id={article.Id}>
+                </lightning-button>
+            </template>
+        </div>
+        <template if:true={selectedArticle}>
+            <div class="slds-p-around_medium">
+                <h3>Summary</h3>
+                <p>{selectedArticle.Summary}</p>
+            </div>
+        </template>
+    </lightning-card>
+</template>
+
