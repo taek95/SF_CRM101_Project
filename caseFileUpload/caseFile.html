@@ -1,0 +1,19 @@
+<template>
+    <lightning-card title="사진을 올려주세요" icon-name="standard:case">
+        <template if:true={error}>
+            <p class="slds-text-color_error">Error: {error.body.message}</p>
+        </template>    
+    </lightning-card>
+    <lightning-card title="Upload Photo to Case">
+        <div class="slds-p-around_medium">
+            <lightning-input type="file" label="Choose a Photo" onchange={handleFileChange} accept=".jpg,.jpeg,.png"></lightning-input>
+            <template if:true={filePreview}>
+                <p><strong>Image Preview:</strong></p>
+                <img src={filePreview} alt="Image Preview" class="slds-box" style="max-width: 100%; height: auto;"/>
+            </template>
+        </div>
+        <div class="slds-p-around_medium">
+            <lightning-button label="Upload" onclick={handleUpload} class="slds-m-top_medium"></lightning-button>
+        </div>
+    </lightning-card>
+</template>
